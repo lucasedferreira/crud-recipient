@@ -1,13 +1,9 @@
 let recipientValidator = {};
 
-recipientValidator.checkRecipient = (req, res, next) => {
-    let recipient = req.body;
-
+recipientValidator.checkRecipient = (recipient) => {
     validateRecipientInfo(recipient);
     validateAgency(recipient);
     validateAccount(recipient);
-
-    next();
 }
 
 const validateRecipientInfo = (recipient) => {
@@ -59,7 +55,7 @@ const validateAccount = (recipient) => {
     validateByScheme(scheme, {info: recipient.account, digit: recipient.account_digit}, 'Account');
 
     if(!scheme.accountTypesAllowed.includes(recipient.account_type))
-        throw new Error('Account type is not allowed');
+        throw new Error('Account type is not allowed.');
 }
 
 const validateByScheme = (scheme, data, inputName) => {
@@ -69,7 +65,7 @@ const validateByScheme = (scheme, data, inputName) => {
     let infoIsInPattern = scheme.pattern.test(data.info);
     let infoIsValid = infoIsInPattern && data.info.length <= scheme.maxLength;
     if(!infoIsValid)
-        throw new Error(`${inputName} is not valid`);
+        throw new Error(`${inputName} is not valid.`);
 
     let digitIsInPattern = scheme.digit.pattern.test(data.digit);
     if(!digitIsInPattern)

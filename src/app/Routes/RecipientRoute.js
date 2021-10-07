@@ -1,8 +1,8 @@
 const RecipientController = require('../Application/Controllers/RecipientController');
-const RecipientValidator = require('../Domains/Recipient/Validator');
+const RecipientMiddleware = require('../Application/Middlewares/RecipientMiddleware');
 
 module.exports = (app) => {
-    app.post('/recipient', RecipientValidator.checkRecipient);
+    app.post('/recipient', RecipientMiddleware.validator);
     app.post('/recipient', RecipientController.create);
 
     app.put('/recipient/:id', RecipientController.update);
