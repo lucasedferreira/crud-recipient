@@ -8,4 +8,8 @@ recipientService.create = (recipient) => {
     repository.create(parsedRecipient);
 }
 
+recipientService.update = (recipient) => {
+    
+}
+
 module.exports = recipientService;

@@ -14,4 +14,10 @@ recipientParser.parserCreate = (recipient) => {
     }
 }
 
+recipientParser.parserUpdate = (recipient) => {
+    let parsedRecipient = {
+        
+    }
+}
+
 module.exports = recipientParser;
