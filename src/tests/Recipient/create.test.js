@@ -34,17 +34,5 @@ describe('Creating Recipients', () => {
             });
             done();
         });
-
-
-        // getLastRecipient(recipient => {
-            
-        // });
     });
 });
-
-const getLastRecipient = (recipient) => {
-    mysql.query('SELECT * FROM recipients ORDER BY id DESC LIMIT 1', (err, results) => {
-        let lastRecipient = results[0];
-        recipient(lastRecipient);
-    });
-}
