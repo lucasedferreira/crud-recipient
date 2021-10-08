@@ -9,6 +9,17 @@ recipientRepository.create = (recipient) => {
     });
 }
 
+recipientRepository.update = (recipientID, recipient) => {
+    let fieldsValuesForSQL = [];
+    for (const [field, value] of Object.entries(recipient)) {
+        fieldsValuesForSQL.push(`${field} = '${value}'`);
+    }
+
+    mysql.query(`UPDATE ${table} SET ${fieldsValuesForSQL.join(', ')} WHERE id = ?`, recipientID, (error, results, fields) => {
+        if (error) throw error;
+    });
+}
+
 recipientRepository.delete = (recipientID) => {
     let recipients = [];
     mysql.query(`DELETE FROM ${table} WHERE id = ?`, recipientID, (error, results, fields) => {

@@ -5,7 +5,9 @@ module.exports = (app) => {
     app.post('/recipient', RecipientMiddleware.validator);
     app.post('/recipient', RecipientController.create);
 
+    app.put('/recipient/:id', RecipientMiddleware.validator);
     app.put('/recipient/:id', RecipientController.update);
+
     app.delete('/recipient/:id', RecipientController.delete);
     app.get('/recipients', RecipientController.get);
     app.get('/recipient/:id', RecipientController.getById);

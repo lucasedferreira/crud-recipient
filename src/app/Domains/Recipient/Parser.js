@@ -1,6 +1,6 @@
 let recipientParser = {};
 
-recipientParser.parserCreate = (recipient) => {
+recipientParser.parseRecipient = (recipient) => {
     return {
         name: recipient.name,
         email: recipient.email,
@@ -11,12 +11,6 @@ recipientParser.parserCreate = (recipient) => {
         account: recipient.account,
         account_digit: recipient.account_digit,
         account_type: recipient.account_type
-    }
-}
-
-recipientParser.parserUpdate = (recipient) => {
-    let parsedRecipient = {
-        
     }
 }
 

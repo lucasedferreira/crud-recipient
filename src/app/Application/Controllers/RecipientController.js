@@ -10,9 +10,9 @@ recipientController.create = (req, res, next) => {
 };
 
 recipientController.update = (req, res, next) => {
+    let recipientID = req.params.id;
     let recipient = req.body;
-    recipient.id = req.params.id;
-    RecipientService.update(recipient);
+    RecipientService.update(recipientID, recipient);
     res.status(201).send(`Recipient Updated.`);
 };
 
