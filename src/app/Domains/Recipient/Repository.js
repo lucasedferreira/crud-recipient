@@ -4,8 +4,15 @@ const table = 'recipients';
 let recipientRepository = {};
 
 recipientRepository.create = (recipient) => {
-    mysql.query(`INSERT INTO ${table} SET ?`, recipient, (error, results, fields) => {
-        if (error) throw error;
+    return new Promise((resolve, reject) => {
+        try {
+            mysql.query(`INSERT INTO ${table} SET ?`, recipient, (error, results, fields) => {
+                if (error) throw error;
+                resolve();
+            });
+        }catch {
+            reject();
+        }
     });
 }
 

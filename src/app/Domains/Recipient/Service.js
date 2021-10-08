@@ -5,7 +5,7 @@ let recipientService = {};
 
 recipientService.create = (recipient) => {
     let parsedRecipient = parser.parseRecipient(recipient);
-    repository.create(parsedRecipient);
+    return repository.create(parsedRecipient);
 }
 
 recipientService.update = (recipientID, recipient) => {
