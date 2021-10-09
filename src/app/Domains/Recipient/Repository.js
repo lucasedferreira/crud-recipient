@@ -1,4 +1,5 @@
 const model = require('./Model');
+const { Op } = require('sequelize');
 
 let recipientRepository = {};
 
@@ -17,8 +18,24 @@ recipientRepository.delete = (recipientID) => {
     model.destroy({where: { id: recipientID}});
 }
 
-recipientRepository.get = async () => {
-    return await model.findAll();
+recipientRepository.getPaginated = async (searchFor = '', offset = 0, limit = 10) => {
+    let where = {};
+    if(searchFor) {
+        where = {
+            [Op.or]: [
+                { name: { [Op.like]: `%${searchFor}%` } },
+                { cpf_cnpj: { [Op.like]: `%${searchFor}%` } },
+                { agency: { [Op.like]: `%${searchFor}%` } },
+                { account: { [Op.like]: `%${searchFor}%` } }
+            ]
+        }
+    }
+
+    return await model.findAndCountAll({
+        offset: offset,
+        limit: limit,
+        where: where
+    });
 }
 
 recipientRepository.getByID = async (recipientID) => {

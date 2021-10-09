@@ -23,8 +23,13 @@ recipientController.delete = (req, res, next) => {
     res.status(200).send(`Recipient Deleted.`);
 };
 
-recipientController.get = async (req, res, next) => {
-    let recipients = await RecipientRepository.get();
+recipientController.getPaginated = async (req, res, next) => {
+    let searchFor = req.body.searchFor;
+
+    let offset = parseInt(req.params.offset);
+    let limit = parseInt(req.params.limit);
+
+    let recipients = await RecipientRepository.getPaginated(searchFor, offset, limit);
     res.status(200).send(recipients);
 };
 
