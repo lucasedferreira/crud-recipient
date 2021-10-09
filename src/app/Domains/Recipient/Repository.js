@@ -21,4 +21,8 @@ recipientRepository.get = async () => {
     return await model.findAll();
 }
 
+recipientRepository.getByID = async (recipientID) => {
+    return await model.findByPk(recipientID);
+}
+
 module.exports = recipientRepository;

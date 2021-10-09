@@ -14,7 +14,7 @@ recipientController.update = (req, res, next) => {
     let recipient = req.body;
 
     RecipientService.update(recipientID, recipient);
-    res.status(201).send();
+    res.status(201).send('Updated Recipient.');
 };
 
 recipientController.delete = (req, res, next) => {
@@ -28,9 +28,10 @@ recipientController.get = async (req, res, next) => {
     res.status(200).send(recipients);
 };
 
-recipientController.getById = (req, res, next) => {
-    let id = req.params.id;
-    res.status(200).send(`Rota GET com ID! ${id}`);
+recipientController.getById = async (req, res, next) => {
+    let recipientID = req.params.id;
+    let recipient = await RecipientRepository.getByID(recipientID);
+    res.status(200).send(recipient);
 };
 
 module.exports = recipientController;
