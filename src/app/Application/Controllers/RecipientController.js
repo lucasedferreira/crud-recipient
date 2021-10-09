@@ -3,10 +3,10 @@ const RecipientRepository = require('../../Domains/Recipient/Repository');
 
 let recipientController = {};
 
-recipientController.create = (req, res, next) => {
+recipientController.create = async (req, res, next) => {
     let recipient = req.body;
-    RecipientService.create(recipient);
-    res.status(201).send('Recipient Created.');
+    let createdRecipient = await RecipientService.create(recipient);
+    res.status(201).send(createdRecipient);
 };
 
 recipientController.update = (req, res, next) => {

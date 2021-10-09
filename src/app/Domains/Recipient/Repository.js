@@ -1,19 +1,9 @@
-const mysql = require('../../../config/database');
+const model = require('./Model');
 
-const table = 'recipients';
 let recipientRepository = {};
 
-recipientRepository.create = (recipient) => {
-    return new Promise((resolve, reject) => {
-        try {
-            mysql.query(`INSERT INTO ${table} SET ?`, recipient, (error, results, fields) => {
-                if (error) throw error;
-                resolve();
-            });
-        }catch {
-            reject();
-        }
-    });
+recipientRepository.create = async (recipient) => {
+    return await model.create(recipient);
 }
 
 recipientRepository.update = (recipientID, recipient) => {

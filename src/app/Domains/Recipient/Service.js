@@ -3,9 +3,9 @@ const repository = require('./Repository');
 
 let recipientService = {};
 
-recipientService.create = (recipient) => {
+recipientService.create = async (recipient) => {
     let parsedRecipient = parser.parseRecipient(recipient);
-    return repository.create(parsedRecipient);
+    return await repository.create(parsedRecipient);
 }
 
 recipientService.update = (recipientID, recipient) => {

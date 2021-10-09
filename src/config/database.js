@@ -1,12 +1,4 @@
-const mysql = require('mysql');
+const Sequelize = require('sequelize');
+const sequelize = new Sequelize('transfeera', 'root', 'changeme', {dialect: 'mysql', host: 'localhost'});
 
-let connection = mysql.createConnection({
-    host     : process.env.DB_HOST,
-    user     : process.env.DB_USER,
-    password : process.env.DB_PASSWORD,
-    database : process.env.DB_NAME
-});
-
-connection.connect();
-
-module.exports = connection;
+module.exports = sequelize;
