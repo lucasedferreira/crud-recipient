@@ -26,10 +26,8 @@ recipientRepository.delete = (recipientID) => {
     return recipients;
 }
 
-recipientRepository.get = (recipients) => {
-    mysql.query(`SELECT * FROM ${table}`, (err, rows) => {
-        recipients(rows);
-    });
+recipientRepository.get = async () => {
+    return await model.findAll();
 }
 
 module.exports = recipientRepository;

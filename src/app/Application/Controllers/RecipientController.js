@@ -22,10 +22,9 @@ recipientController.delete = (req, res, next) => {
     res.status(200).send(`Recipient Deleted.`);
 };
 
-recipientController.get = (req, res, next) => {
-    RecipientRepository.get(recipients => {
-        res.status(200).send(recipients);
-    });
+recipientController.get = async (req, res, next) => {
+    let recipients = await RecipientRepository.get();
+    res.status(200).send(recipients);
 };
 
 recipientController.getById = (req, res, next) => {
