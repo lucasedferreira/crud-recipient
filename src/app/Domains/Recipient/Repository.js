@@ -7,23 +7,14 @@ recipientRepository.create = async (recipient) => {
 }
 
 recipientRepository.update = (recipientID, recipient) => {
-    let fieldsValuesForSQL = [];
-    for (const [field, value] of Object.entries(recipient)) {
-        fieldsValuesForSQL.push(`${field} = '${value}'`);
-    }
-
-    mysql.query(`UPDATE ${table} SET ${fieldsValuesForSQL.join(', ')} WHERE id = ?`, recipientID, (error, results, fields) => {
-        if (error) throw error;
-    });
+    model.update(
+        recipient,
+        { where: { id: recipientID } }
+    );
 }
 
 recipientRepository.delete = (recipientID) => {
-    let recipients = [];
-    mysql.query(`DELETE FROM ${table} WHERE id = ?`, recipientID, (error, results, fields) => {
-        if (error) throw error;
-        recipients = results;
-    });
-    return recipients;
+    model.destroy({where: { id: recipientID}});
 }
 
 recipientRepository.get = async () => {

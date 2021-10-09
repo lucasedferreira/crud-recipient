@@ -12,8 +12,9 @@ recipientController.create = async (req, res, next) => {
 recipientController.update = (req, res, next) => {
     let recipientID = req.params.id;
     let recipient = req.body;
+
     RecipientService.update(recipientID, recipient);
-    res.status(201).send(`Recipient Updated.`);
+    res.status(201).send();
 };
 
 recipientController.delete = (req, res, next) => {
