@@ -29,5 +29,5 @@ describe('Recipient Parser', () => {
             account_type: 'CONTA_POUPANCA',
             bank: '001'
         });
-    })
+    });
 });

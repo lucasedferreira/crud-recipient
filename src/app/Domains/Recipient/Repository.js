@@ -18,7 +18,7 @@ recipientRepository.delete = (recipientID) => {
     model.destroy({where: { id: recipientID}});
 }
 
-recipientRepository.getPaginated = async (searchFor = '', offset = 0, limit = 10) => {
+recipientRepository.getPaginated = async (offset = 0, limit = 10, searchFor = '') => {
     let where = {};
     if(searchFor) {
         where = {
