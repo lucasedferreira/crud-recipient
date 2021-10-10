@@ -1,4 +1,4 @@
-const RecipientValidator = require('../../app/Domains/Recipient/Validator');
+const RecipientValidator = require('../../../app/Domains/Recipient/Validator');
 
 const dummyRecipient = {
     name: 'Jeon Jung-kook',

@@ -7,7 +7,7 @@ recipientValidator.checkRecipient = (recipient) => {
 }
 
 const validateRecipientInfo = (recipient) => {
-    ['name', 'email', 'bank'].forEach(field => {
+    ['name', 'cpf_cnpj', 'email', 'bank'].forEach(field => {
         if(!recipient[field]) {
             let fieldName = field.charAt(0).toUpperCase() + field.slice(1);
             throw new Error(`${fieldName} is required.`);

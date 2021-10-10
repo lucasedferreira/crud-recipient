@@ -1,4 +1,4 @@
-const RecipientParser = require('../../app/Domains/Recipient/Parser');
+const RecipientParser = require('../../../../src/app/Domains/Recipient/Parser');
 
 const dummyRecipient = {
     name: 'Jeon Jung-kook',

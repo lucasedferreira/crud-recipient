@@ -1,4 +1,4 @@
-const model = require('./Model');
+const model = require('../../../../database/models').Recipient;
 const { Op } = require('sequelize');
 
 let recipientRepository = {};

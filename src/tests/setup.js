@@ -1,24 +1,9 @@
-require('dotenv').config({path: '.env.testing'});
+const models = require('../../database/models');
 
-// (async () => {
-//     const database = require('../../src/config/database');
+beforeEach(async () => {
+    await models.sequelize.truncate({ cascade: true });
+});
 
-//     try {
-//         await database.sync();
-//     } catch (error) {
-//         console.log(error);
-//     }
-// })();
-
-// const database = require('../../src/config/database');
-// beforeAll(async() => {
-//     try {
-//         await database.sync();
-//     } catch (error) {
-//         console.log(error);
-//     }
-// });
-
-// afterAll(() => {
-//     database.drop();
-// });
+afterAll(async () => {
+    await models.sequelize.close();
+});

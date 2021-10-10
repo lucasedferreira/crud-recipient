@@ -1,5 +1,4 @@
-const mysql = require('../../config/database');
-const RecipientService = require('../../app/Domains/Recipient/Service');
+// const RecipientService = require('../../app/Domains/Recipient/Service');
 
 const dummyRecipient = {
     name: 'Jeon Jung-kook',
@@ -12,6 +11,12 @@ const dummyRecipient = {
     account_type: 'CONTA_FACIL',
     bank: '001'
 }
+
+describe('test', () => {
+    it('123', () => {
+        expect(1).toBe(1);
+    });
+});
 
 // describe('Creating Recipients', () => {
 //     it('Create a recipient successfully', done => {
