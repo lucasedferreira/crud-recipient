@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     account: DataTypes.STRING,
     account_digit: DataTypes.STRING,
     account_type: DataTypes.STRING,
-    validated: DataTypes.BOOLEAN
+    validated: { type: DataTypes.BOOLEAN, defaultValue: false }
   }, {
     sequelize,
     modelName: 'Recipient',
