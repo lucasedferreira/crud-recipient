@@ -5,7 +5,7 @@ recipientParser.parseRecipient = (recipient) => {
         name: recipient.name,
         email: recipient.email,
         cpf_cnpj: recipient.cpf_cnpj.replace(/\D/g, ""),
-        bank: recipient.bank,
+        bank_id: recipient.bank_id,
         agency: recipient.agency,
         agency_digit: recipient.agency_digit,
         account: recipient.account,
