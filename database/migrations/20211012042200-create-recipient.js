@@ -17,9 +17,6 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
-      bank: {
-        type: Sequelize.STRING
-      },
       agency: {
         type: Sequelize.STRING
       },
@@ -37,6 +34,14 @@ module.exports = {
       },
       validated: {
         type: Sequelize.BOOLEAN
+      },
+      bank_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Banks',
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,

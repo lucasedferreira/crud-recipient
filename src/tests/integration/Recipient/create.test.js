@@ -15,6 +15,7 @@ const dummyRecipient = {
 describe('Creating Recipients', () => {
     it('Create a recipient successfully', async () => {
         let createdRecipient = await RecipientService.create(dummyRecipient);
+
         expect(createdRecipient.id).toBeTruthy();
         expect(createdRecipient.name).toEqual('Jeon Jung-kook');
         expect(createdRecipient.email).toEqual('jungkook@transfeera.com.br');

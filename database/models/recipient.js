@@ -10,20 +10,20 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Recipient.belongsTo(models.Bank, {foreignKey: 'bank_id', as: 'bank'});
     }
   };
   Recipient.init({
     name: DataTypes.STRING,
     cpf_cnpj: DataTypes.STRING,
     email: DataTypes.STRING,
-    bank: DataTypes.STRING,
     agency: DataTypes.STRING,
     agency_digit: DataTypes.STRING,
     account: DataTypes.STRING,
     account_digit: DataTypes.STRING,
     account_type: DataTypes.STRING,
-    validated: { type: DataTypes.BOOLEAN, defaultValue: false }
+    validated: DataTypes.BOOLEAN,
+    bank_id: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Recipient',
