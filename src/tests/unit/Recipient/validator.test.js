@@ -9,7 +9,7 @@ const dummyRecipient = {
     account: '1235999',
     account_digit: '8',
     account_type: 'CONTA_POUPANCA',
-    bank: '001'
+    bank_id: 1
 }
 
 describe('Recipient Validator', () => {
@@ -25,6 +25,17 @@ describe('Recipient Validator', () => {
             RecipientValidator.checkRecipient(recipient);
         }catch (e) {
             expect(e.message).toBe('Name is required.');
+        }
+    });
+
+    it('Invalid CPF', () => {
+        let recipient = JSON.parse(JSON.stringify(dummyRecipient));
+        recipient.cpf_cnpj = '11111111111';
+
+        try {
+            RecipientValidator.checkRecipient(recipient);
+        }catch (e) {
+            expect(e.message).toBe('CPF is not valid.');
         }
     });
 
@@ -56,7 +67,7 @@ describe('Recipient Validator', () => {
 
     it('Account Type is not allowed in general bank', () => {
         let recipient = JSON.parse(JSON.stringify(dummyRecipient));
-        recipient.bank = '756';
+        recipient.bank_id = 2;
         recipient.account_type = 'CONTA_FACIL';
 
         let errorMessage = '';

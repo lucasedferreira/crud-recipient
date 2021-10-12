@@ -1,3 +1,5 @@
+const { cpf, cnpj } = require("cpf-cnpj-validator");
+
 let recipientValidator = {};
 
 recipientValidator.checkRecipient = (recipient) => {
@@ -13,6 +15,11 @@ const validateRecipientInfo = (recipient) => {
             throw new Error(`${fieldName} is required.`);
         }
     });
+
+    const isCPF = recipient.cpf_cnpj.length == 11;
+    const documentIsInvalid = !(isCPF ? cpf : cnpj).isValid(recipient['cpf_cnpj']);
+    if(documentIsInvalid)
+        throw new Error(`${isCPF ? 'CPF' : 'CNPJ'} is not valid.`);
 }
 
 const validateAgency = (recipient) => {
@@ -50,7 +57,7 @@ const validateAccount = (recipient) => {
             },
             accountTypesAllowed: ["CONTA_CORRENTE", "CONTA_POUPANCA"]
         }
-    }[(recipient.bank === '001' ? 'bancoDoBrasil' : 'general')]
+    }[(recipient.bank_id === 1 ? 'bancoDoBrasil' : 'general')];
 
     validateByScheme(scheme, {info: recipient.account, digit: recipient.account_digit}, 'Account');
 

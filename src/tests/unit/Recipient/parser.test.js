@@ -9,7 +9,7 @@ const dummyRecipient = {
     account: '1235999',
     account_digit: '8',
     account_type: 'CONTA_POUPANCA',
-    bank: '001',
+    bank_id: 1,
     unnecessaryField: 'bangtan sonyodan'
 }
 
@@ -27,7 +27,7 @@ describe('Recipient Parser', () => {
             account: '1235999',
             account_digit: '8',
             account_type: 'CONTA_POUPANCA',
-            bank: '001'
+            bank_id: 1
         });
     });
 });
