@@ -24,7 +24,7 @@ recipientsSetup.createManyRandomRecipients = async () => {
     for(let x = 1; x < 30; x++) {
         fakeRecipients.push({
             name: faker.name.firstName(),
-            email: faker.email,
+            email: faker.internet.email(),
             cpf_cnpj: faker.datatype.boolean ? cpf.generate() : cnpj.generate(),
             agency: /^(?:^0*)[1-9][0-9]{0,3}$/.gen().slice(-4),
             agency_digit: "7",

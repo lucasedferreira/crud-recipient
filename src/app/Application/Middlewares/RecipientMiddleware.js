@@ -4,7 +4,7 @@ let recipientMiddleware = {};
 
 recipientMiddleware.validator = (req, res, next) => {
     let recipient = req.body;
-    
+
     try {
         recipientValidator.checkRecipient(recipient);
         next();

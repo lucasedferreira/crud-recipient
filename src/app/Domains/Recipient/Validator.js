@@ -17,7 +17,7 @@ const validateRecipientInfo = (recipient) => {
     });
 
     const isCPF = recipient.cpf_cnpj.length == 11;
-    const documentIsInvalid = !(isCPF ? cpf : cnpj).isValid(recipient['cpf_cnpj']);
+    const documentIsInvalid = !(isCPF ? cpf : cnpj).isValid(recipient['cpf_cnpj'].replace(/\D/g, ""));
     if(documentIsInvalid)
         throw new Error(`${isCPF ? 'CPF' : 'CNPJ'} is not valid.`);
 }
