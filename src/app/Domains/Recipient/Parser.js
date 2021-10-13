@@ -4,13 +4,13 @@ recipientParser.parseRecipient = (recipient) => {
     return {
         name: recipient.name,
         email: recipient.email,
-        cpf_cnpj: recipient.cpf_cnpj.replace(/\D/g, ""),
-        bank_id: recipient.bank_id,
+        cpfCnpj: recipient.cpfCnpj.replace(/\D/g, ""),
+        bankId: recipient.bankId,
         agency: recipient.agency,
-        agency_digit: recipient.agency_digit,
+        agencyDigit: recipient.agencyDigit,
         account: recipient.account,
-        account_digit: recipient.account_digit,
-        account_type: recipient.account_type
+        accountDigit: recipient.accountDigit,
+        accountType: recipient.accountType
     }
 }
 

@@ -13,25 +13,25 @@ recipientsSetup.createManyRandomRecipients = async () => {
     let fakeRecipients = [{
         name: "Kim Nam-joon",
         email: "rapmonster@transfeera.com.br",
-        cpf_cnpj: "08451011969",
+        cpfCnpj: "08451011969",
         agency: "3317",
-        agency_digit: "7",
+        agencyDigit: "7",
         account: "114455",
-        account_digit: "6",
-        account_type: "CONTA_CORRENTE",
-        bank_id: 2
+        accountDigit: "6",
+        accountType: "CONTA_CORRENTE",
+        bankId: 2
     }];
     for(let x = 1; x < 30; x++) {
         fakeRecipients.push({
             name: faker.name.firstName(),
             email: faker.internet.email(),
-            cpf_cnpj: faker.datatype.boolean ? cpf.generate() : cnpj.generate(),
+            cpfCnpj: faker.datatype.boolean ? cpf.generate() : cnpj.generate(),
             agency: /^(?:^0*)[1-9][0-9]{0,3}$/.gen().slice(-4),
-            agency_digit: "7",
+            agencyDigit: "7",
             account: /^(?:^0*)[1-9][0-9]{0,10}$/.gen().slice(-11),
-            account_digit: "4",
-            account_type: "CONTA_CORRENTE",
-            bank_id: 2
+            accountDigit: "4",
+            accountType: "CONTA_CORRENTE",
+            bankId: 2
         });
     }
     await RecipientModel.bulkCreate(fakeRecipients);

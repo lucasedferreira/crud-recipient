@@ -9,15 +9,15 @@ recipientValidator.checkRecipient = (recipient) => {
 }
 
 const validateRecipientInfo = (recipient) => {
-    ['name', 'cpf_cnpj', 'email', 'bank_id'].forEach(field => {
+    ['name', 'cpfCnpj', 'email', 'bankId'].forEach(field => {
         if(!recipient[field]) {
             let fieldName = field.charAt(0).toUpperCase() + field.slice(1);
             throw new Error(`${fieldName} is required.`);
         }
     });
 
-    const isCPF = recipient.cpf_cnpj.length == 11;
-    const documentIsInvalid = !(isCPF ? cpf : cnpj).isValid(recipient['cpf_cnpj'].replace(/\D/g, ""));
+    const isCPF = recipient.cpfCnpj.length == 11;
+    const documentIsInvalid = !(isCPF ? cpf : cnpj).isValid(recipient['cpfCnpj'].replace(/\D/g, ""));
     if(documentIsInvalid)
         throw new Error(`${isCPF ? 'CPF' : 'CNPJ'} is not valid.`);
 }
@@ -32,7 +32,7 @@ const validateAgency = (recipient) => {
             pattern: /^[xX0-9]{0,1}$/
         }
     }
-    validateByScheme(scheme, {info: recipient.agency, digit: recipient.agency_digit}, 'Agency');
+    validateByScheme(scheme, {info: recipient.agency, digit: recipient.agencyDigit}, 'Agency');
 }
 
 const validateAccount = (recipient) => {
@@ -57,11 +57,11 @@ const validateAccount = (recipient) => {
             },
             accountTypesAllowed: ["CONTA_CORRENTE", "CONTA_POUPANCA"]
         }
-    }[(recipient.bank_id === 1 ? 'bancoDoBrasil' : 'general')];
+    }[(recipient.bankId === 1 ? 'bancoDoBrasil' : 'general')];
 
-    validateByScheme(scheme, {info: recipient.account, digit: recipient.account_digit}, 'Account');
+    validateByScheme(scheme, {info: recipient.account, digit: recipient.accountDigit}, 'Account');
 
-    if(!scheme.accountTypesAllowed.includes(recipient.account_type))
+    if(!scheme.accountTypesAllowed.includes(recipient.accountType))
         throw new Error('Account type is not allowed.');
 }
 

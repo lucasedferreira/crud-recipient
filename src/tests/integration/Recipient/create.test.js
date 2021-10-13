@@ -7,13 +7,13 @@ beforeAll(recipientsSetup.createDefaultBanks);
 const dummyRecipient = {
     name: 'Jeon Jung-kook',
     email: 'jungkook@transfeera.com.br',
-    cpf_cnpj: '08451011969',
+    cpfCnpj: '08451011969',
     agency: '0742',
-    agency_digit: '',
+    agencyDigit: '',
     account: '1235999',
-    account_digit: '8',
-    account_type: 'CONTA_FACIL',
-    bank_id: 1
+    accountDigit: '8',
+    accountType: 'CONTA_FACIL',
+    bankId: 1
 }
 
 describe('Creating Recipients', () => {
@@ -27,12 +27,12 @@ describe('Creating Recipients', () => {
         expect(createdRecipient.id).toBeTruthy();
         expect(createdRecipient.name).toEqual('Jeon Jung-kook');
         expect(createdRecipient.email).toEqual('jungkook@transfeera.com.br');
-        expect(createdRecipient.cpf_cnpj).toEqual('08451011969');
+        expect(createdRecipient.cpfCnpj).toEqual('08451011969');
         expect(createdRecipient.agency).toEqual('0742');
-        expect(createdRecipient.agency_digit).toEqual('');
+        expect(createdRecipient.agencyDigit).toEqual('');
         expect(createdRecipient.account).toEqual('1235999');
-        expect(createdRecipient.account_digit).toEqual('8');
-        expect(createdRecipient.account_type).toEqual('CONTA_FACIL');
-        expect(createdRecipient.bank_id).toEqual(1);
+        expect(createdRecipient.accountDigit).toEqual('8');
+        expect(createdRecipient.accountType).toEqual('CONTA_FACIL');
+        expect(createdRecipient.bankId).toEqual(1);
     });
 });

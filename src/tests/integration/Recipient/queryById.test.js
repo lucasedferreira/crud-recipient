@@ -14,12 +14,12 @@ describe('Consulting a specific recipient', () => {
         expect(recipient.id).toBeTruthy();
         expect(recipient.name).toEqual('Kim Nam-joon');
         expect(recipient.email).toEqual('rapmonster@transfeera.com.br');
-        expect(recipient.cpf_cnpj).toEqual('08451011969');
+        expect(recipient.cpfCnpj).toEqual('08451011969');
         expect(recipient.agency).toEqual('3317');
-        expect(recipient.agency_digit).toEqual('7');
+        expect(recipient.agencyDigit).toEqual('7');
         expect(recipient.account).toEqual('114455');
-        expect(recipient.account_digit).toEqual('6');
-        expect(recipient.account_type).toEqual('CONTA_CORRENTE');
-        expect(recipient.bank_id).toEqual(2);
+        expect(recipient.accountDigit).toEqual('6');
+        expect(recipient.accountType).toEqual('CONTA_CORRENTE');
+        expect(recipient.bankId).toEqual(2);
     });
 });

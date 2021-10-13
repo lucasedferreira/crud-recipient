@@ -11,7 +11,7 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
-      cpf_cnpj: {
+      cpfCnpj: {
         type: Sequelize.STRING
       },
       email: {
@@ -20,22 +20,23 @@ module.exports = {
       agency: {
         type: Sequelize.STRING
       },
-      agency_digit: {
+      agencyDigit: {
         type: Sequelize.STRING
       },
       account: {
         type: Sequelize.STRING
       },
-      account_digit: {
+      accountDigit: {
         type: Sequelize.STRING
       },
-      account_type: {
+      accountType: {
         type: Sequelize.STRING
       },
       validated: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
       },
-      bank_id: {
+      bankId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {

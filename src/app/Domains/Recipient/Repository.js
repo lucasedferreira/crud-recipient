@@ -24,7 +24,7 @@ recipientRepository.getPaginated = async (offset = 0, limit = 10, searchFor = ''
         where = {
             [Op.or]: [
                 { name: { [Op.like]: `%${searchFor}%` } },
-                { cpf_cnpj: { [Op.like]: `%${searchFor}%` } },
+                { cpfCnpj: { [Op.like]: `%${searchFor}%` } },
                 { agency: { [Op.like]: `%${searchFor}%` } },
                 { account: { [Op.like]: `%${searchFor}%` } }
             ]

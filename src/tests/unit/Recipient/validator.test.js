@@ -3,13 +3,13 @@ const RecipientValidator = require('../../../app/Domains/Recipient/Validator');
 const dummyRecipient = {
     name: 'Jeon Jung-kook',
     email: 'jungkook@example.com',
-    cpf_cnpj: '08451011969',
+    cpfCnpj: '08451011969',
     agency: '0742',
-    agency_digit: '',
+    agencyDigit: '',
     account: '1235999',
-    account_digit: '8',
-    account_type: 'CONTA_POUPANCA',
-    bank_id: 1
+    accountDigit: '8',
+    accountType: 'CONTA_POUPANCA',
+    bankId: 1
 }
 
 describe('Recipient Validator', () => {
@@ -30,7 +30,7 @@ describe('Recipient Validator', () => {
 
     it('Invalid CPF', () => {
         let recipient = JSON.parse(JSON.stringify(dummyRecipient));
-        recipient.cpf_cnpj = '11111111111';
+        recipient.cpfCnpj = '11111111111';
 
         try {
             RecipientValidator.checkRecipient(recipient);
@@ -67,8 +67,8 @@ describe('Recipient Validator', () => {
 
     it('Account Type is not allowed in general bank', () => {
         let recipient = JSON.parse(JSON.stringify(dummyRecipient));
-        recipient.bank_id = 2;
-        recipient.account_type = 'CONTA_FACIL';
+        recipient.bankId = 2;
+        recipient.accountType = 'CONTA_FACIL';
 
         let errorMessage = '';
         try {

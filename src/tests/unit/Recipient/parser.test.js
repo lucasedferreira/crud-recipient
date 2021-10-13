@@ -3,13 +3,13 @@ const RecipientParser = require('../../../../src/app/Domains/Recipient/Parser');
 const dummyRecipient = {
     name: 'Jeon Jung-kook',
     email: 'jungkook@example.com',
-    cpf_cnpj: '084.510.119-69',
+    cpfCnpj: '084.510.119-69',
     agency: '0742',
-    agency_digit: '',
+    agencyDigit: '',
     account: '1235999',
-    account_digit: '8',
-    account_type: 'CONTA_POUPANCA',
-    bank_id: 1,
+    accountDigit: '8',
+    accountType: 'CONTA_POUPANCA',
+    bankId: 1,
     unnecessaryField: 'bangtan sonyodan'
 }
 
@@ -21,13 +21,13 @@ describe('Recipient Parser', () => {
         expect(parsedRecipient).toStrictEqual({
             name: 'Jeon Jung-kook',
             email: 'jungkook@example.com',
-            cpf_cnpj: '08451011969',
+            cpfCnpj: '08451011969',
             agency: '0742',
-            agency_digit: '',
+            agencyDigit: '',
             account: '1235999',
-            account_digit: '8',
-            account_type: 'CONTA_POUPANCA',
-            bank_id: 1
+            accountDigit: '8',
+            accountType: 'CONTA_POUPANCA',
+            bankId: 1
         });
     });
 });
