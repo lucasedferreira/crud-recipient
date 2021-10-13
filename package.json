@@ -17,9 +17,12 @@
     "cpf-cnpj-validator": "^1.0.3",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "faker": "^5.5.3",
     "mysql2": "^2.3.0",
+    "randexp": "^0.5.3",
     "sequelize": "^6.6.5",
-    "sequelize-mock": "^0.10.2"
+    "sequelize-mock": "^0.10.2",
+    "supertest": "^6.1.6"
   },
   "devDependencies": {
     "jest": "^27.2.4",
