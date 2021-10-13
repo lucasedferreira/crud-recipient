@@ -1,12 +1,12 @@
 const app = require('../../../app');
-const supertest = require('supertest');
+const request = require('supertest');
 
 const recipientsSetup = require('./setup');
 beforeAll(recipientsSetup.createManyRandomRecipients);
 
 describe('Recipient list pagination', () => {
     it('Get 20 recipients', async () => {
-        const response = await supertest(app)
+        const response = await request(app)
             .post("/recipients/0/20")
             .expect(200);
 
@@ -14,7 +14,7 @@ describe('Recipient list pagination', () => {
     });
 
     it('Get recipients second page', async () => {
-        const response = await supertest(app)
+        const response = await request(app)
             .post("/recipients/20/40")
             .expect(200);
 
@@ -22,7 +22,7 @@ describe('Recipient list pagination', () => {
     });
 
     it('Get recipients filtering by CPF', async () => {
-        const response = await supertest(app)
+        const response = await request(app)
             .post("/recipients/0/20")
             .send({searchFor: '08451011969'});
 
@@ -30,7 +30,7 @@ describe('Recipient list pagination', () => {
     });
 
     it('Get recipients filtering by Name', async () => {
-        const response = await supertest(app)
+        const response = await request(app)
             .post("/recipients/0/20")
             .send({searchFor: 'Kim Nam-joon'});
 
