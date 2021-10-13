@@ -9,6 +9,8 @@ module.exports = (app) => {
     app.put('/recipient/:id', RecipientController.update);
 
     app.delete('/recipient/:id', RecipientController.delete);
+
     app.post('/recipients/:offset/:limit', RecipientController.getPaginated);
+
     app.get('/recipient/:id', RecipientController.getById);
 }

@@ -14,10 +14,10 @@ recipientsSetup.createManyRandomRecipients = async () => {
         name: "Kim Nam-joon",
         email: "rapmonster@transfeera.com.br",
         cpf_cnpj: "08451011969",
-        agency: /^(?:^0*)[1-9][0-9]{0,3}$/.gen().slice(-4),
+        agency: "3317",
         agency_digit: "7",
-        account: /^(?:^0*)[1-9][0-9]{0,10}$/.gen().slice(-11),
-        account_digit: "4",
+        account: "114455",
+        account_digit: "6",
         account_type: "CONTA_CORRENTE",
         bank_id: 2
     }];
