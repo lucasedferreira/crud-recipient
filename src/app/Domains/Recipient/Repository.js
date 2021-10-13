@@ -7,8 +7,8 @@ recipientRepository.create = async (recipient) => {
     return await model.create(recipient);
 }
 
-recipientRepository.update = (recipientID, recipient) => {
-    model.update(
+recipientRepository.update = async (recipientID, recipient) => {
+    await model.update(
         recipient,
         { where: { id: recipientID } }
     );

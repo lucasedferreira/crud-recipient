@@ -8,9 +8,9 @@ recipientService.create = async (recipient) => {
     return await repository.create(parsedRecipient);
 }
 
-recipientService.update = (recipientID, recipient) => {
+recipientService.update = async (recipientID, recipient) => {
     let parsedRecipient = parser.parseRecipient(recipient);
-    repository.update(recipientID, parsedRecipient);
+    await repository.update(recipientID, parsedRecipient);
 }
 
 module.exports = recipientService;

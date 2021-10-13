@@ -5,11 +5,11 @@ const dummyRecipient = {
     email: 'jungkook@example.com',
     cpfCnpj: '08451011969',
     agency: '0742',
-    agencyDigit: '',
+    agency_digit: '',
     account: '1235999',
-    accountDigit: '8',
-    accountType: 'CONTA_POUPANCA',
-    bankId: 1
+    account_digit: '8',
+    account_type: 'CONTA_POUPANCA',
+    bank_id: 1
 }
 
 describe('Recipient Validator', () => {
@@ -67,8 +67,8 @@ describe('Recipient Validator', () => {
 
     it('Account Type is not allowed in general bank', () => {
         let recipient = JSON.parse(JSON.stringify(dummyRecipient));
-        recipient.bankId = 2;
-        recipient.accountType = 'CONTA_FACIL';
+        recipient.bank_id = 2;
+        recipient.account_type = 'CONTA_FACIL';
 
         let errorMessage = '';
         try {
